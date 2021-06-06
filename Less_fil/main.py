@@ -54,7 +54,18 @@ for i in range(len(x)):
             cont-=1
 
 print(cook_book)
-
+def get_shop_list_by_dishes(dishes, person_count):
+    outP={}
+    for bludo in dishes:
+        for bludo_cook in cook_book:
+            if bludo==bludo_cook:
+                for ingr in cook_book[bludo_cook]:
+                    if outP.get(ingr['ingredient_name'])==None:
+                        outP[ingr['ingredient_name']]={'quantity':ingr['quantity']*person_count,'measure':ingr['measure']}
+                    else:
+                        outP[ingr['ingredient_name']]['quantity']+=ingr['quantity']*person_count
+    return outP
+print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
 
 
 
