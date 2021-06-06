@@ -1,3 +1,7 @@
+import os
+import time
+
+
 def probel(s):
     if s[0]==' ':
         return s[1:]
@@ -66,6 +70,12 @@ def get_shop_list_by_dishes(dishes, person_count):
                         outP[ingr['ingredient_name']]['quantity']+=ingr['quantity']*person_count
     return outP
 print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
+
+#Задача 3
+a=['1.txt','2.txt','3.txt']
+for i in a:
+    path_f=os.path.join('\SORTed', i)
+
 
 
 
