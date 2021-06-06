@@ -73,8 +73,30 @@ print(get_shop_list_by_dishes(['Запеченный картофель', 'Ом�
 
 #Задача 3
 a=['1.txt','2.txt','3.txt']
+sort=[]
+sort_ind=[]
+sortOut=['0' for i in a]
 for i in a:
-    path_f=os.path.join('\SORTed', i)
+    with open('SORTed/'+i,'r',encoding='UTF-8') as f:
+        ff=f.readlines()
+        ff.append(i)
+        sort_ind.append(len(ff))
+        sort.append(ff)
+sort_ind=sorted(sort_ind)
+for i in range(len(sort_ind)):
+    for j in sort:
+        if sort_ind[i]==len(j):
+            sortOut[i]=j
+f=open('Ответы.txt','w',encoding='UTF-8')
+for i in sortOut:
+    f.write('\n'+i[-1]+'\n')
+    f.write(str(len(i)-1)+' стр.'+'\n')
+    for j in i[:-1]:
+        f.write(j)
+f.close()
+
+
+
 
 
 
